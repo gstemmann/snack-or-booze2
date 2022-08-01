@@ -8,7 +8,6 @@ function Drink({ drinks, cantFind }) {
 
   let drink = drinks.find(drink => drink.id === id);
   if (!drink) return <Redirect to={cantFind} />;
-  console.log(drink);
   return (
     <section>
       <Card>

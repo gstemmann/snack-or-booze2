@@ -7,7 +7,6 @@ function Snack({ snacks, cantFind }) {
 
   let snack = snacks.find(snack => snack.id === id);
   if (!snack) return <Redirect to={cantFind} />;
-  console.log(snack);
 
 
   return (

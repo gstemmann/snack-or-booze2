@@ -8,6 +8,7 @@ import { Route, Switch } from "react-router-dom";
 import Menu from "./Menu";
 import Snack from "./Snack";
 import Drink from "./Drink";
+import AddForm from "./AddForm";
 
 
 function App() {
@@ -32,8 +33,13 @@ function App() {
     }
     getSnacks();
   }, []);
+  const addSnacks = (snack) => {
+    setSnacks([...snacks, snack]);
+  }
+  const addDrinks = (drink) => {
+    setDrinks([...drinks, drink]);
+  }
 
-  
   if (isLoading) {
     return <p>Loading &hellip;</p>;
   }
@@ -46,6 +52,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Home snacks={snacks} drinks={drinks} />
+            </Route>
+            <Route path="/add">
+              <AddForm addDrinks={addDrinks} addSnacks={addSnacks} />
             </Route>
             <Route path="/drinks/:id">
               <Drink drinks={drinks} cantFind="/items" />
